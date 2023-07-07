@@ -9,67 +9,39 @@
     android:background="#80BDFF">
 
     <TextView
+        android:id="@+id/questionBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="40dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="40dp"
-        android:background="@drawable/round_button"
+        android:background="@drawable/color_white"
         android:gravity="center"
         android:minHeight="100dp"
         android:padding="20dp"
         android:text="Question"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="40dp"
-        android:background="@drawable/button_not_selected"
-        android:gravity="center"
-        android:minHeight="50dp"
-        android:padding="20dp"
-        android:text="Option 1"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
-        android:background="@drawable/button_not_selected"
-        android:gravity="center"
-        android:minHeight="50dp"
-        android:padding="20dp"
-        android:text="Option 2"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFA2A7"
         android:textSize="16sp"/>
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content" >
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioButton1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="40dp"
             android:button="@android:color/transparent"
             android:background="@drawable/radio_button"
             android:gravity="center"
             android:minHeight="50dp"
             android:padding="20dp"
-            android:text="Option 4"
+            android:text="Option 1"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
@@ -85,8 +57,56 @@
             android:gravity="center"
             android:minHeight="50dp"
             android:padding="20dp"
+            android:text="Option 2"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:button="@android:color/transparent"
+            android:background="@drawable/radio_button"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:padding="20dp"
+            android:text="Option 3"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:button="@android:color/transparent"
+            android:background="@drawable/radio_button"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:padding="20dp"
             android:text="Option 4"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/color_white"
+        android:gravity="center"
+        android:minHeight="50dp"
+        android:padding="10dp"
+        android:text="Next question"
+        android:textColor="#FFA2A7"
+        android:textSize="16sp" />
+
 </LinearLayout>
