@@ -5,7 +5,10 @@
       <map>
         <entry key="..\:/ProyectosAndroid/Projects/QuizzCDS/app/src/main/res/drawable/button_not_selected.xml" value="0.2285" />
         <entry key="..\:/ProyectosAndroid/Projects/QuizzCDS/app/src/main/res/drawable/button_selected.xml" value="0.2285" />
+        <entry key="..\:/ProyectosAndroid/Projects/QuizzCDS/app/src/main/res/drawable/color_pink.xml" value="0.2285" />
         <entry key="..\:/ProyectosAndroid/Projects/QuizzCDS/app/src/main/res/drawable/color_white.xml" value="0.2285" />
+        <entry key="..\:/ProyectosAndroid/Projects/QuizzCDS/app/src/main/res/drawable/correct_answer.xml" value="0.2285" />
+        <entry key="..\:/ProyectosAndroid/Projects/QuizzCDS/app/src/main/res/drawable/incorrect_answer.xml" value="0.2285" />
         <entry key="..\:/ProyectosAndroid/Projects/QuizzCDS/app/src/main/res/drawable/next_button.xml" value="0.2285" />
         <entry key="..\:/ProyectosAndroid/Projects/QuizzCDS/app/src/main/res/drawable/question_box.xml" value="0.2285" />
         <entry key="..\:/ProyectosAndroid/Projects/QuizzCDS/app/src/main/res/drawable/radio_button.xml" value="0.2285" />

@@ -1,10 +1,13 @@
 package com.example.quizzcds.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -13,11 +16,13 @@ import com.example.quizzcds.R;
 import com.example.quizzcds.classes.Question;
 import com.example.quizzcds.classes.QuestionsList;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 public class QuizzActivity extends AppCompatActivity {
+    ImageView backArrow;
+    TextView textQuestionNumber;
+
     TextView questionBox;
     RadioButton option1;
     RadioButton option2;
@@ -31,10 +36,15 @@ public class QuizzActivity extends AppCompatActivity {
 
     int questionNumber;
 
+    CountDownTimer timeNextQuestion;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizz);
+
+        backArrow = findViewById(R.id.backArrow);
+        textQuestionNumber = findViewById(R.id.textQuestionNumber);
 
         questionBox = findViewById(R.id.questionBox);
         option1 = findViewById(R.id.radioButton1);
@@ -51,6 +61,13 @@ public class QuizzActivity extends AppCompatActivity {
             }
         });
 
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         questionsList = QuestionsList.getQuestionsList();
         Collections.shuffle(questionsList);
         questionNumber = 0;
@@ -59,38 +76,105 @@ public class QuizzActivity extends AppCompatActivity {
     }
 
     private void showQuestions() {
-        System.out.println(questionsList.get(0).getQuestion());
+        if (questionNumber < questionsList.size()){
+            textQuestionNumber.setText(questionNumber+1 +"/" + questionsList.size());
+            questionBox.setText(questionsList.get(questionNumber).getQuestion());
+            option1.setText(questionsList.get(questionNumber).getOption1());
+            option2.setText(questionsList.get(questionNumber).getOption2());
+            option3.setText(questionsList.get(questionNumber).getOption3());
+            option4.setText(questionsList.get(questionNumber).getOption4());
+        }else {
 
-        questionBox.setText(questionsList.get(questionNumber).getQuestion());
-        option1.setText(questionsList.get(questionNumber).getOption1());
-        option2.setText(questionsList.get(questionNumber).getOption2());
-        option3.setText(questionsList.get(questionNumber).getOption3());
-        option4.setText(questionsList.get(questionNumber).getOption4());
+        }
     }
 
     private void checkAnswer(){
         radioGroup.getCheckedRadioButtonId();
         switch (radioGroup.getCheckedRadioButtonId()) {
             case R.id.radioButton1:
-                System.out.println("111111111111111111");
-                System.out.println(questionsList.get(questionNumber).getOption1());
+                if (questionsList.get(questionNumber).getOption1().equals(questionsList.get(questionNumber).getCorrectAnswer())){
+                    option1.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.correct_answer, null));
+                }else {
+                    option1.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.incorrect_answer, null));
+                }
                 break;
             case R.id.radioButton2:
-                System.out.println("22222222222222222222");
-                System.out.println(questionsList.get(questionNumber).getOption2());
+                if (questionsList.get(questionNumber).getOption2().equals(questionsList.get(questionNumber).getCorrectAnswer())){
+                    option2.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.correct_answer, null));
+                }else {
+                    option2.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.incorrect_answer, null));
+                }
                 break;
             case R.id.radioButton3:
-                System.out.println("333333333333333333333");
-                System.out.println(questionsList.get(questionNumber).getOption3());
+                if (questionsList.get(questionNumber).getOption3().equals(questionsList.get(questionNumber).getCorrectAnswer())){
+                    option3.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.correct_answer, null));
+                }else {
+                    option3.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.incorrect_answer, null));
+                }
                 break;
             case R.id.radioButton4:
-                System.out.println("4444444444444444444444");
-                System.out.println(questionsList.get(questionNumber).getOption4());
+                if (questionsList.get(questionNumber).getOption4().equals(questionsList.get(questionNumber).getCorrectAnswer())){
+                    option4.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.correct_answer, null));
+                }else {
+                    option4.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.incorrect_answer, null));
+                }
                 break;
             default:
-                System.out.println("00000000000000000000000000");
+
                 break;
+        }
+        timeNextQuestion();
+    }
+
+    private void timeNextQuestion(){
+        timeNextQuestion = new CountDownTimer(2000, 1000) {
+            @Override
+            public void onTick(long l) {
+                option1.setClickable(false);
+                option2.setClickable(false);
+                option3.setClickable(false);
+                option4.setClickable(false);
+                showCorrectAnswer();
+            }
+
+            @Override
+            public void onFinish() {
+                questionNumber++;
+                showQuestions();
+                clearOptions();
+            }
+        }.start();
+
+    }
+
+    private void showCorrectAnswer(){
+        String correctAnswer = questionsList.get(questionNumber).getCorrectAnswer();
+        if (correctAnswer.equals(option1.getText().toString())){
+            option1.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.correct_answer, null));
+        }else if (correctAnswer.equals(option2.getText().toString())){
+            option2.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.correct_answer, null));
+        }else if (correctAnswer.equals(option3.getText().toString())){
+            option3.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.correct_answer, null));
+        }else {
+            option4.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.correct_answer, null));
         }
     }
 
+    private void clearOptions(){
+        radioGroup.clearCheck();
+        option1.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.radio_button, null));
+        option2.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.radio_button, null));
+        option3.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.radio_button, null));
+        option4.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.radio_button, null));
+
+        option1.setClickable(true);
+        option2.setClickable(true);
+        option3.setClickable(true);
+        option4.setClickable(true);
+    }
+
+    @Override
+    public void onBackPressed(){
+
+    }
 }
