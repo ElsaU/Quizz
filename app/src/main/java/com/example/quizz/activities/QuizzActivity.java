@@ -72,7 +72,7 @@ public class QuizzActivity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cancelTime();
+                timeQuestion.cancel();
                 finish();
             }
         });
