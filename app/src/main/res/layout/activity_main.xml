@@ -1,53 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#80BDFF"
+    android:orientation="vertical"
+    android:background="@drawable/fondo"
     tools:context=".activities.MainActivity" >
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="348dp"
-        android:layout_height="319dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024"
-        app:srcCompat="@drawable/titulo_app" />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:layout_gravity="center"
+        android:text="QUIZZ"
+        android:textColor="#FF8086"
+        android:textSize="100sp"
+        android:textStyle="bold"
+        android:rotation="-10"/>
 
     <Button
         android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="230dp"
+        android:layout_gravity="center"
         android:background="@drawable/color_pink"
         android:padding="15dp"
         android:text="Comenzar"
         android:textColor="#FFFFFF"
         android:textSize="24dp"
         app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.19999999" />
+         />
 
-    <Button
-        android:id="@+id/buttonRanking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/color_pink"
-        android:padding="15dp"
-        android:text=" Ranking  "
-        android:textSize="24dp"
-        android:textColor="#FFFFFF"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonStart"
-        app:layout_constraintVertical_bias="0.25" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

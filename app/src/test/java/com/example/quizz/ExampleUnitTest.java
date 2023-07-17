@@ -1,4 +1,4 @@
-package com.example.quizzcds;
+package com.example.quizz;
 
 import org.junit.Test;
 

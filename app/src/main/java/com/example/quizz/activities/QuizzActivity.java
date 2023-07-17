@@ -1,4 +1,4 @@
-package com.example.quizzcds.activities;
+package com.example.quizz.activities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,9 +15,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.example.quizzcds.R;
-import com.example.quizzcds.classes.Question;
-import com.example.quizzcds.classes.QuestionsList;
+import com.example.quizz.R;
+import com.example.quizz.classes.Question;
+import com.example.quizz.classes.QuestionsList;
 
 import java.util.ArrayList;
 import java.util.Collections;

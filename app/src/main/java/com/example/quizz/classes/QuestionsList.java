@@ -1,4 +1,4 @@
-package com.example.quizzcds.classes;
+package com.example.quizz.classes;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.quizzcds.classes;
+package com.example.quizz.classes;
 
 public class Question {
     private String question;
